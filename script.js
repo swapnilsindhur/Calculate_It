@@ -1,8 +1,11 @@
 let string = ""   // to store and display data
 let isEqual = false  // to check whether = was pressed previously or not.
 let operator_count = 0 // to count continuous operator
+
 let buttons = document.querySelectorAll('button')
 let input = document.querySelector('input')
+
+
 console.log(buttons)
 buttons.forEach((button)=>{
     button.addEventListener('click',(event)=>{
@@ -15,10 +18,13 @@ buttons.forEach((button)=>{
         }
 
 
-        if(isEqual==true){
+
+
+        if(isEqual==true){       // if = was pressed previously, then clear output to display new input
             string=""
             isEqual = false
         }
+
 
 
         if(button.innerHTML == 'AC'){
@@ -35,7 +41,8 @@ buttons.forEach((button)=>{
         }
         else if(button.innerHTML == '='){
             isEqual=true
-            if(operator_count==0)
+
+            if(operator_count==0)   // checks invalid data
                 string=eval(string)
             else   {
                 string="NA"
@@ -47,5 +54,6 @@ buttons.forEach((button)=>{
             string += button.innerHTML
         }
         input.value = string
+
     })
 })
